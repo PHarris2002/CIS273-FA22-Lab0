@@ -33,24 +33,29 @@ namespace Vector
 		// METHODS
 		public Vector Add(Vector v)
 		{
-			Vector result = new Vector(this.X + v.X, this.Y + v.Y);
+			Vector resultAdd = new Vector(this.X + v.X, this.Y + v.Y);
 
-			return result;
+			return resultAdd;
 		}
 
 		public Vector Subtract(Vector v)
+
 		{
-			return new Vector();
+            Vector resultSubtract = new Vector(this.X - v.X, this.Y - v.Y);
+            return resultSubtract;
 		}
 
 		public double Dot(Vector v)
 		{
-			return 0.0;
+			double result = (this.X * v.X) + (this.Y * v.Y);
+			return result;
 		}
 
 		public double AngleBetween(Vector v)
 		{
-			return 0.0;
+			double angleRadians = Math.Acos((this.X*v.X + this.Y*v.Y)/(Math.Sqrt(Math.Pow(this.X,2) + Math.Pow(this.Y, 2)) * Math.Sqrt(Math.Pow(v.X, 2) + Math.Pow(v.Y, 2))));
+			double angleDegrees = angleRadians * (180/Math.PI);
+			return angleDegrees;
 		}
 
 		public override string ToString()
@@ -78,7 +83,7 @@ namespace Vector
 
         public static double AngleBetween(Vector a, Vector b)
         {
-            return a.AngleBetween(b);
+			return a.AngleBetween(b);
         }
 
 
