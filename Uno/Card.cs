@@ -16,17 +16,17 @@ namespace Uno
         Red, Yellow, Blue, Green, Wild
     }
 
-	public class Card 
+	public class Card
 	{
 		public CardType Type { get; set; }
 		public Color Color { get; set; }
-		public int? Number { get; set; }	
+		public int? Number { get; set; }
 
 		public Card()
 		{
 		}
 
-		public Card(CardType type, Color color, int? number=null)
+		public Card(CardType type, Color color, int? number = null)
 		{
 			Type = type;
 			Color = color;
@@ -36,12 +36,36 @@ namespace Uno
 		// Does card1 play on card2
 		public static bool PlaysOn(Card card1, Card card2)
 		{
-			if(card2.Color == Color.Wild)
+
+			if (
+				card1.Color == Color.Wild ||
+				card2.Color == Color.Wild ||
+				card1.Type == card2.Type ||
+				card1.Color == card2.Color ||
+				card1.Number == card2.Number
+
+                )
+			{
+				return true;
+			}
+
+			else if
+            (
+				card1.Color != Color.Wild &&
+                card2.Color != Color.Wild &&
+                card1.Type != card2.Type &&
+                card1.Color != card2.Color &&
+                card1.Number != card2.Number
+            )
 			{
 				return false;
 			}
-
-			return true;
+			
+	
+			else
+			{
+				return false;
+			}
 
 		}
 
