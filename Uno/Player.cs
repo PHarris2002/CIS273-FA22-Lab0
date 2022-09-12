@@ -15,14 +15,18 @@ namespace Uno
 
         public bool HasPlayableCard(Card card)
         {
-            if (Hand.Contains(card))
+            foreach (Card c in Hand)
             {
-                return true;
+                if (c == card)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public Card GetFirstPlayableCard(Card card)

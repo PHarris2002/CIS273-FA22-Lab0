@@ -37,10 +37,10 @@ namespace Uno
 		public static bool PlaysOn(Card card1, Card card2)
 		{
 
+
 			if (
 				card1.Color == Color.Wild ||
 				card2.Color == Color.Wild ||
-				card1.Type == card2.Type ||
 				card1.Color == card2.Color ||
 				card1.Number == card2.Number
 
@@ -49,19 +49,6 @@ namespace Uno
 				return true;
 			}
 
-			else if
-            (
-				card1.Color != Color.Wild &&
-                card2.Color != Color.Wild &&
-                card1.Type != card2.Type &&
-                card1.Color != card2.Color &&
-                card1.Number != card2.Number
-            )
-			{
-				return false;
-			}
-			
-	
 			else
 			{
 				return false;
